@@ -18,8 +18,8 @@ export default defineConfig({
       includeAssets: [
         'favicon.svg',
         'robots.txt',
-        'icons/icon-192.png',
-        'icons/icon-512.png',
+        'icons/icon-192-v1.png',
+        'icons/icon-512-v1.png',
       ],
       manifest: {
         name: 'Personal Power II Journal',
@@ -34,13 +34,13 @@ export default defineConfig({
         categories: ['productivity', 'lifestyle'],
         icons: [
           {
-            src: 'icons/icon-192.png',
+            src: 'icons/icon-192-v1.png',
             sizes: '192x192',
             type: 'image/png',
             purpose: 'any maskable',
           },
           {
-            src: 'icons/icon-512.png',
+            src: 'icons/icon-512-v1.png',
             sizes: '512x512',
             type: 'image/png',
             purpose: 'any maskable',
@@ -49,7 +49,7 @@ export default defineConfig({
       },
       workbox: {
         // Cache name prefix — bump version to invalidate on next deploy
-        cacheId: 'pp2-v1',
+        cacheId: 'pp2-v2',
         // Stale-while-revalidate for navigation (SPA fallback)
         navigateFallback: 'index.html',
         navigateFallbackDenylist: [/\/api\//],
