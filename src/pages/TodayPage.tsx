@@ -89,13 +89,12 @@ export function TodayPage() {
   const [celebration, setCelebration] = useState<CelebrationEvent | null>(null);
   const [showRecovery, setShowRecovery] = useState(false);
 
-  // Gate: no start date yet
-  if (!startDate) return <OnboardingScreen />;
-
   // Determine effective day
-  const effectiveDay = isProgramStrict
-    ? Math.min(30, Math.max(1, getEffectiveProgramDay(new Date(), cutoff, startDate)))
-    : manualPointer;
+  const effectiveDay = !startDate 
+    ? 1 
+    : isProgramStrict
+      ? Math.min(30, Math.max(1, getEffectiveProgramDay(new Date(), cutoff, startDate)))
+      : manualPointer;
 
   const dayData   = getDayByNumber(effectiveDay);
   const isDayDone = dayCompletions[effectiveDay] ?? false;
@@ -111,7 +110,7 @@ export function TodayPage() {
   // Recovery detection
   const recovery = computeRecoveryState(fullState);
 
-  // Stable callbacks
+  // Stable callbacks (MOVED UP)
   const handleNoteChange = useCallback((note: string) => {
     addDailyNote(effectiveDay, note);
   }, [effectiveDay, addDailyNote]);
@@ -124,6 +123,10 @@ export function TodayPage() {
 
   const handleDismissCelebration = useCallback(() => setCelebration(null), []);
 
+  // Gate 1: no start date yet (AFTER HOOKS)
+  if (!startDate) return <OnboardingScreen />;
+
+  // Gate 2: Invalid day or program complete (AFTER HOOKS)
   if (!dayData) {
     return (
       <AppShell headerTitle="Program Complete">
