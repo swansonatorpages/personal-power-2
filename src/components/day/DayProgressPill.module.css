@@ -1,0 +1,43 @@
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 99px;
+}
+
+.pillDone {
+  background: rgba(72,199,116,0.08);
+  border-color: rgba(72,199,116,0.3);
+}
+
+.bar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.fill {
+  height: 100%;
+  background: rgba(245,200,66,0.6);
+  border-radius: 99px;
+  transition: width 0.35s ease;
+}
+
+.fillDone {
+  background: #48c774;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.pillDone .label { color: #48c774; }

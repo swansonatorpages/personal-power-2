@@ -1,0 +1,136 @@
+.legend {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 8px;
+  padding: 0 0 8px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.progress {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 8px 0 12px;
+}
+
+.matrix { display: flex; flex-direction: column; gap: 12px; }
+
+.row {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.rowFilled {
+  border-color: rgba(72,199,116,0.22);
+}
+
+.rowHeader { display: flex; align-items: center; justify-content: space-between; }
+
+.rowLabel {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+/* Yes / No */
+.yesNoRow { display: flex; gap: 8px; }
+
+.ynBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.05);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  cursor: pointer;
+  min-height: 44px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.ynYes {
+  background: rgba(72,199,116,0.15);
+  border-color: rgba(72,199,116,0.4);
+  color: #48c774;
+}
+
+.ynNo {
+  background: rgba(255,100,100,0.12);
+  border-color: rgba(255,100,100,0.3);
+  color: #ff6b6b;
+}
+
+/* Score row */
+.scoreRow { display: flex; flex-direction: column; gap: 6px; }
+
+.scoreLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.scorePips {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.pip {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  color: var(--color-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.12s, color 0.12s;
+}
+
+.pipActive {
+  background: linear-gradient(135deg, #f5c842, #e8890c);
+  color: #0a0a0f;
+  border-color: transparent;
+  font-weight: 900;
+}
+
+/* Note */
+.noteInput {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  line-height: 1.5;
+  min-height: 60px;
+  resize: none;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+
+.noteInput:focus { outline: none; border-color: rgba(245,200,66,0.4); }
+
+.saveRow { display: flex; justify-content: flex-end; }

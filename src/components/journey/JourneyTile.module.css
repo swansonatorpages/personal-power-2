@@ -1,0 +1,152 @@
+/* ── Wrapper ── */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  position: relative;
+}
+
+/* ── Core tile button ── */
+.tile {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255,255,255,0.07);
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  overflow: hidden;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+.tile:active { transform: scale(0.92); }
+
+/* ── Day number ── */
+.num {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--color-text-muted);
+  z-index: 1;
+  line-height: 1;
+  position: relative;
+}
+
+/* ── Status variants ── */
+.status_complete {
+  background: rgba(72,199,116,0.18);
+  border-color: rgba(72,199,116,0.45);
+  box-shadow: 0 0 10px rgba(72,199,116,0.15);
+}
+.status_complete .num { color: #48c774; }
+
+.status_partial {
+  background: rgba(245,200,66,0.08);
+  border-color: rgba(245,200,66,0.3);
+}
+.status_partial .num { color: var(--color-gold); }
+
+.status_missed {
+  background: rgba(255,107,107,0.08);
+  border-color: rgba(255,107,107,0.25);
+}
+.status_missed .num { color: #ff6b6b; }
+
+.status_today {
+  background: rgba(245,200,66,0.12);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(245,200,66,0.18), 0 0 14px rgba(245,200,66,0.25);
+}
+.status_today .num { color: var(--color-gold); font-size: 14px; }
+
+.status_weekend {
+  background: rgba(100,149,237,0.07);
+  border-color: rgba(100,149,237,0.22);
+}
+.status_weekend .num { color: #6495ed; }
+
+.status_future {
+  background: rgba(255,255,255,0.025);
+  border-color: rgba(255,255,255,0.05);
+}
+.status_future .num { color: rgba(255,255,255,0.2); }
+
+/* ── Milestone ring ── */
+.hasMilestone {
+  box-shadow: 0 0 0 2px rgba(245,200,66,0.35);
+}
+
+/* ── Partial arc ── */
+.arc {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.arcBg {
+  fill: none;
+  stroke: rgba(245,200,66,0.1);
+  stroke-width: 3;
+}
+
+.arcFill {
+  fill: none;
+  stroke: var(--color-gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.4s ease;
+}
+
+/* ── Status icon overlay ── */
+.icon {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  font-size: 9px;
+  font-weight: 900;
+  z-index: 2;
+  line-height: 1;
+}
+
+.status_complete .icon { color: #48c774; }
+.status_missed   .icon { color: #ff6b6b; }
+.status_partial  .icon { color: var(--color-gold); }
+.status_weekend  .icon { color: #6495ed; }
+
+/* ── Today pulse ring ── */
+.pulseDot {
+  position: absolute;
+  inset: -4px;
+  border-radius: 12px;
+  border: 2px solid rgba(245,200,66,0.5);
+  animation: pulse 2.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 0.2; transform: scale(1.08); }
+}
+
+/* ── Milestone badge (above tile) ── */
+.milestoneBadge {
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* ── Milestone label (below tile) ── */
+.milestoneLabel {
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  white-space: nowrap;
+}

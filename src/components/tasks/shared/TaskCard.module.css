@@ -1,0 +1,76 @@
+.card {
+  background: rgba(255,255,255,0.035);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.cardDone {
+  border-color: rgba(72,199,116,0.32);
+  background: rgba(72,199,116,0.04);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 18px 0;
+}
+
+.statusOrb {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.orbDone {
+  background: #48c774;
+  border-color: #48c774;
+}
+
+.orbCheck {
+  font-size: 14px;
+  color: #0a0a0f;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.3;
+}
+
+.description {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+
+.requiredBadge {
+  font-size: 8px;
+  color: var(--color-gold);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.body {
+  padding: 14px 18px 18px;
+}

@@ -1,0 +1,113 @@
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Flame block */
+.flameBlock {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.flameEmoji { font-size: 28px; line-height: 1; flex-shrink: 0; }
+
+.streakNum {
+  display: block;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--color-gold);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.streakUnit {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Divider */
+.divider {
+  width: 1px;
+  height: 44px;
+  background: rgba(255,255,255,0.07);
+  margin: 0 16px;
+  flex-shrink: 0;
+}
+
+/* Meta block */
+.metaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.metaLabel {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.metaValue {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--color-text-secondary);
+}
+
+/* Last 7 day dots */
+.dotRow {
+  display: flex;
+  gap: 0;
+  justify-content: space-between;
+}
+
+.dotWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(72,199,116,0.7);
+  box-shadow: 0 0 6px rgba(72,199,116,0.4);
+}
+
+.dotEmpty {
+  background: rgba(255,255,255,0.08);
+  box-shadow: none;
+}
+
+.dotLabel {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}

@@ -1,0 +1,69 @@
+.progress {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 56px;
+  padding: 0 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, border-color 0.15s;
+  width: 100%;
+}
+
+.itemDone {
+  background: rgba(72,199,116,0.07);
+  border-color: rgba(72,199,116,0.25);
+}
+
+.circle {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.circleDone {
+  background: #48c774;
+  border-color: #48c774;
+}
+
+.check {
+  font-size: 13px;
+  color: #0a0a0f;
+  font-weight: 900;
+}
+
+.label {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.itemDone .label {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  text-decoration-color: rgba(72,199,116,0.4);
+}

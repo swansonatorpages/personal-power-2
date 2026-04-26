@@ -1,0 +1,90 @@
+/* ============================================================
+   Shared task input primitives — imported across all task components
+   ============================================================ */
+
+/* Text inputs */
+.textInput {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.15s;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: rgba(245,200,66,0.5);
+}
+
+/* Textareas */
+.textarea {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-family: var(--font-family);
+  line-height: 1.6;
+  min-height: 120px;
+  resize: none;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: rgba(245,200,66,0.5);
+}
+
+/* Confirm / action buttons */
+.confirmBtn {
+  width: 100%;
+  padding: 16px;
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  cursor: pointer;
+  min-height: 52px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.confirmDone {
+  background: rgba(72,199,116,0.12);
+  border-color: rgba(72,199,116,0.45);
+  color: #48c774;
+}
+
+/* Save indicator row */
+.saveRow {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 6px;
+}
+
+/* Hint text */
+.hint {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+/* Min-count note */
+.minNote {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin: 0;
+}

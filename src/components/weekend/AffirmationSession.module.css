@@ -1,0 +1,130 @@
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.3s;
+}
+
+.cardDone { border-color: rgba(72,199,116,0.3); }
+
+.header { display: flex; flex-direction: column; gap: 4px; }
+
+.tag {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: var(--color-gold);
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.track {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.trackFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-gold), #48c774);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.counters {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-top: -8px;
+}
+
+.affirmCard {
+  background: rgba(245,200,66,0.05);
+  border: 1px solid rgba(245,200,66,0.15);
+  border-radius: 14px;
+  padding: 20px 18px;
+  min-height: 90px;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.affirmText {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.65;
+  margin: 0;
+  font-style: italic;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.navBtn {
+  flex: 1;
+  padding: 13px;
+  min-height: 50px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--color-text-secondary);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-family);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.15s;
+}
+
+.navBtn:disabled { opacity: 0.25; cursor: default; }
+
+.navBtnNext {
+  background: rgba(245,200,66,0.1);
+  border-color: rgba(245,200,66,0.25);
+  color: var(--color-gold);
+}
+
+.confirmBtn {
+  padding: 14px;
+  min-height: 52px;
+  border-radius: 14px;
+  background: rgba(72,199,116,0.1);
+  border: 1.5px solid rgba(72,199,116,0.3);
+  color: #48c774;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: var(--font-family);
+  cursor: pointer;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.completeBanner {
+  padding: 14px;
+  text-align: center;
+  background: rgba(72,199,116,0.08);
+  border: 1px solid rgba(72,199,116,0.25);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #48c774;
+}

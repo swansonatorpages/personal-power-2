@@ -1,0 +1,119 @@
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+
+.cardActive {
+  /* border-color set inline per accent */
+}
+
+.cardDone {
+  border-color: rgba(72,199,116,0.25) !important;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 44px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 99px;
+  align-self: flex-start;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.todayCheck {
+  font-size: 14px;
+  color: #48c774;
+  font-weight: 900;
+}
+
+.chevron {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+/* ── Progress strip ── */
+.progressStrip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.daysLabel {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.upcomingLabel {
+  font-size: 11px;
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.completedLabel {
+  font-size: 11px;
+  color: #6495ed;
+  font-weight: 600;
+}
+
+/* ── Tasks ── */
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}

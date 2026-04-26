@@ -1,0 +1,83 @@
+.arcRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.arcBg {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.arcFill {
+  height: 100%;
+  background: linear-gradient(90deg, #f5c842, #48c774);
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.arcPct {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  min-width: 36px;
+  text-align: right;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.07);
+  color: var(--color-text-primary);
+  font-size: 26px;
+  font-family: var(--font-family);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btn:active { transform: scale(0.93); }
+.btn:disabled { opacity: 0.35; cursor: default; }
+
+.btnAdd {
+  background: rgba(245,200,66,0.12);
+  border-color: rgba(245,200,66,0.3);
+  color: var(--color-gold);
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.value {
+  font-size: 52px;
+  font-weight: 900;
+  color: var(--color-text-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.target {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}

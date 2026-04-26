@@ -1,0 +1,63 @@
+.card {
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid transparent;
+}
+
+.bg_blue   { background: rgba(100,149,237,0.07); border-color: rgba(100,149,237,0.2); }
+.bg_green  { background: rgba(72,199,116,0.07);  border-color: rgba(72,199,116,0.2);  }
+.bg_purple { background: rgba(186,85,211,0.07);  border-color: rgba(186,85,211,0.2);  }
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.icon { font-size: 28px; flex-shrink: 0; }
+
+.label {
+  display: block;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.bg_blue   .label { color: #6495ed; }
+.bg_green  .label { color: #48c774; }
+.bg_purple .label { color: #ba55d3; }
+
+.message {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.55;
+}
+
+.streakRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.streakDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  opacity: 0.7;
+}
+
+.streakText {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-left: 4px;
+}

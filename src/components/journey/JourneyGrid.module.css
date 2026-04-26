@@ -1,0 +1,36 @@
+/* Outer container — flex column so phase rows break the grid flow */
+.outer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+/* Phase labels span all 6 columns */
+.phaseRow {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0 2px;
+}
+
+.phaseName {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.phaseLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+}
+
+/* Each tile cell — participates in 6-col grid */
+.cell {
+  /* Let the cell size itself — JourneyTile uses width:100% + aspect-ratio:1 */
+}

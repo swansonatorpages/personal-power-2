@@ -1,0 +1,122 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 4px;
+}
+
+/* ── Meta row ── */
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.typePill {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 99px;
+}
+.type_weekday  { background: rgba(245,200,66,0.12); color: var(--color-gold); }
+.type_weekend  { background: rgba(100,149,237,0.12); color: #6495ed; }
+.type_bonus    { background: rgba(186,85,211,0.12); color: #ba55d3; }
+.type_review   { background: rgba(72,199,116,0.12); color: #48c774; }
+
+/* ── Hero ── */
+.heroRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.dayStamp {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  line-height: 1;
+}
+
+.dayWord {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  align-self: center;
+}
+
+.dayNum {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.9;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+}
+
+.dayTotal {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+/* ── Title ── */
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ── Progress ── */
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progressBar {
+  flex: 1;
+  height: 4px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #f5c842, #e8890c);
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+.progressLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  min-width: 30px;
+  text-align: right;
+}
+
+/* ── Warning ── */
+.warningBadge {
+  font-size: 11px;
+  color: #e8890c;
+  background: rgba(232,137,12,0.1);
+  border: 1px solid rgba(232,137,12,0.25);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
