@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -44,8 +47,26 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
-      - name: Upload APK
+      - name: Upload APK as artifact
         uses: actions/upload-artifact@v4
         with:
           name: app-debug.apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Get short SHA
+        id: sha
+        run: echo "short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ steps.sha.outputs.short }}
+          name: "Personal Power II - Build ${{ steps.sha.outputs.short }}"
+          body: |
+            Automated APK build from commit ${{ github.sha }}.
+            
+            **Download the APK below**, transfer to your Android phone, and install.
+            You may need to enable "Install from unknown sources" in your phone settings.
+          files: android/app/build/outputs/apk/debug/app-debug.apk
+          prerelease: false
+          make_latest: true
