@@ -57,6 +57,25 @@
   color: var(--color-text-muted);
 }
 
+.dateInput {
+  background: transparent;
+  border: none;
+  color: var(--color-gold);
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-align: right;
+  -webkit-appearance: none;
+  appearance: none;
+  color-scheme: dark;
+}
+
+.dateInput:focus {
+  outline: none;
+}
+
 /* ── Option Buttons (Cutoff) ── */
 .optionGroup {
   display: grid;

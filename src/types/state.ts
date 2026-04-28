@@ -35,6 +35,7 @@ export interface AppActions {
   addConfidenceEntry: (entry: string) => void;
   setProgramMode: (isStrict: boolean) => void;
   setCurrentDayPointer: (day: number) => void;
+  setStartDate: (date: string | null) => void;
   importState: (newState: Partial<AppState>) => void;
 }
 

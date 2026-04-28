@@ -99,6 +99,9 @@ export const useAppStore = create<AppStore>()(
       setCurrentDayPointer: (day) => 
         set({ currentDayPointer: day }),
 
+      setStartDate: (date) => 
+        set({ activeProgramStartDate: date }),
+
       importState: (newState) => 
         set((state) => ({ ...state, ...newState })),
     }),

@@ -23,6 +23,7 @@ export function SettingsPage() {
   const setDayEndCutoff    = useAppStore((s) => s.setDayEndCutoff);
   const setProgramMode     = useAppStore((s) => s.setProgramMode);
   const setCurrentDayPointer = useAppStore((s) => s.setCurrentDayPointer);
+  const setStartDate       = useAppStore((s) => s.setStartDate);
   const initializeProgram  = useAppStore((s) => s.initializeProgram);
 
   const [importStatus, setImportStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -50,7 +51,16 @@ export function SettingsPage() {
           <div className={styles.card}>
             <div className={styles.row}>
               <span className={styles.rowLabel}>Start Date</span>
-              <span className={styles.rowValue}>{startDate ?? 'Not started'}</span>
+              {startDate ? (
+                <input
+                  type="date"
+                  className={styles.dateInput}
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
+                />
+              ) : (
+                <span className={styles.rowValue}>Not started</span>
+              )}
             </div>
             <div className={styles.row}>
               <span className={styles.rowLabel}>Current Day</span>
