@@ -95,17 +95,29 @@ export const programDays: ProgramDay[] = [
     carryForwardHabits: [],
     tasks: [
       {
-        id: 'day4_leverage',
-        type: 'long_text',
-        title: 'Ten reasons why I must change now, and why I know I can do it:',
+        id: 'day4_activities_to_change',
+        type: 'prompt_group',
+        title: 'Four activities that need to change, and 10 reasons why they must change:',
+        prompts: [
+          'Activity 1 to change and 10 reasons why:',
+          'Activity 2 to change and 10 reasons why:',
+          'Activity 3 to change and 10 reasons why:',
+          'Activity 4 to change and 10 reasons why:'
+        ],
         completionRule: { required: true }
       },
       {
         id: 'day4_pattern_interrupts',
         type: 'multi_entry_list',
-        title: 'Four or five ways to get myself out of the limiting associations:',
+        title: 'Four or five ways to interrupt negative patterns:',
         itemLabel: 'Interrupt',
         completionRule: { required: true, minItems: 4 }
+      },
+      {
+        id: 'day4_new_association',
+        type: 'long_text',
+        title: 'Create a new association to the change you want (think of the things you\'ll gain):',
+        completionRule: { required: true }
       }
     ]
   },
