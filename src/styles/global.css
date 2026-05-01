@@ -16,6 +16,17 @@ body {
 input, textarea, button, select {
   font-family: inherit;
   font-size: max(16px, var(--font-size-base)); /* iOS zoom prevention */
+  color: var(--color-text-main);
+  background: transparent;
+  caret-color: var(--color-gold);
+}
+
+textarea {
+  color: #ffffff !important; /* Force high contrast */
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-muted);
 }
 
 .app-shell {
