@@ -16,6 +16,12 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
 
   // Each question gets its own response, stored under morning_q_{i} in taskResponses[dayNumber]
   const responses: Record<string, string> = taskResponses[dayNumber] ?? {};
+  
+  // Pull custom questions from Day 8 if they exist
+  const day8Qs = taskResponses[8]?.['day8_morning_qs'] as string[] | undefined;
+  const customQuestions = Array.isArray(day8Qs) && day8Qs.length > 0 
+    ? day8Qs 
+    : MORNING_POWER_QUESTIONS;
 
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
 
@@ -42,7 +48,7 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
           <span className={styles.icon}>☀️</span>
           <div>
             <h3 className={styles.title}>Morning Power Questions</h3>
-            <p className={styles.sub}>{answeredCount} of {MORNING_POWER_QUESTIONS.length} answered today</p>
+            <p className={styles.sub}>{answeredCount} of {customQuestions.length} answered today</p>
           </div>
         </div>
         {isComplete && <span className={styles.completeBadge}>✓ Done</span>}
@@ -50,7 +56,7 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
 
       {/* Progress dots */}
       <div className={styles.dots}>
-        {MORNING_POWER_QUESTIONS.map((_, i) => {
+        {customQuestions.map((_, i) => {
           const taskId = STORAGE_KEY_PREFIX + i;
           const answered = String(responses[taskId] ?? '').trim().length > 0;
           return (
@@ -65,7 +71,7 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
 
       {/* Question list */}
       <div className={styles.questions}>
-        {MORNING_POWER_QUESTIONS.map((q, i) => {
+        {customQuestions.map((q, i) => {
           const taskId = STORAGE_KEY_PREFIX + i;
           const value = String(responses[taskId] ?? '');
           const isOpen = activeIdx === i;

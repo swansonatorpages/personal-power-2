@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { RankListTask as RankListTaskType } from '../../types/program';
 import { TaskCard } from './shared/TaskCard';
 import styles from './RankListTask.module.css';
@@ -17,6 +18,22 @@ interface Props {
 export function RankListTask({ task, isComplete, savedResponse, onResponse, onComplete }: Props) {
   // Initialize from task.items if no saved order yet
   const items = savedResponse?.orderedItems?.length ? savedResponse.orderedItems : [...task.items];
+  const [draft, setDraft] = useState('');
+
+  const add = () => {
+    const t = draft.trim();
+    if (!t || items.includes(t)) return;
+    const next = [...items, t];
+    setDraft('');
+    onResponse({ orderedItems: next });
+    onComplete(next.length >= (task.completionRule.minItems || 1));
+  };
+
+  const remove = (index: number) => {
+    const next = items.filter((_, i) => i !== index);
+    onResponse({ orderedItems: next });
+    onComplete(next.length >= (task.completionRule.minItems || 1));
+  };
 
   const move = (from: number, to: number) => {
     if (to < 0 || to >= items.length) return;
@@ -57,9 +74,28 @@ export function RankListTask({ task, isComplete, savedResponse, onResponse, onCo
                 disabled={i === items.length - 1}
                 aria-label={'Move ' + item + ' down'}
               >↓</button>
+              <button
+                id={task.id + '-rm-' + i}
+                className={styles.removeBtn}
+                onClick={() => remove(i)}
+                aria-label={'Remove ' + item}
+              >×</button>
             </div>
           </div>
         ))}
+      </div>
+
+      <div className={styles.addRow}>
+        <input
+          id={task.id + '-entry'}
+          className={styles.textInput}
+          type="text"
+          placeholder="Add an item to rank..."
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && add()}
+        />
+        <button id={task.id + '-add'} className={styles.addBtn} onClick={add}>Add</button>
       </div>
     </TaskCard>
   );

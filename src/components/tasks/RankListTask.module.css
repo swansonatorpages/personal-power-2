@@ -66,3 +66,64 @@
   background: rgba(245,200,66,0.15);
   color: var(--color-gold);
 }
+
+.removeBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,107,107,0.1);
+  border: 1px solid rgba(255,107,107,0.2);
+  border-radius: 10px;
+  color: #ff6b6b;
+  font-size: 16px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+}
+
+.removeBtn:active {
+  background: rgba(255,107,107,0.25);
+}
+
+.addRow {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.textInput {
+  flex: 1;
+  background: rgba(0,0,0,0.2);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  border-radius: 14px;
+  padding: 0 16px;
+  color: var(--color-text-primary);
+  font-size: 15px;
+  min-height: 54px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  background: rgba(245,200,66,0.03);
+}
+
+.addBtn {
+  background: var(--color-gold);
+  color: #000;
+  border: none;
+  border-radius: 14px;
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.1s;
+  min-width: 80px;
+}
+
+.addBtn:active {
+  transform: scale(0.95);
+}
