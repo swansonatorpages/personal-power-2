@@ -22,8 +22,8 @@ export function DayPage() {
   const dayData     = getDayByNumber(dayNum);
   const bonusSession = getWeekendModeContent(dayNum);
 
-  const taskCompletions = useAppStore((s) => s.taskCompletions[dayNum] ?? {});
-  const isDayComplete   = useAppStore((s) => s.dayCompletions[dayNum] ?? false);
+  const taskCompletions = useAppStore((s) => s.taskCompletions[dayNum]) ?? {};
+  const isDayComplete   = useAppStore((s) => s.dayCompletions[dayNum]) ?? false;
   const markDayComplete = useAppStore((s) => s.markDayComplete);
 
   const handleFinishDay = useCallback(() => {

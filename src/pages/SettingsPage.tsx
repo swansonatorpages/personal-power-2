@@ -70,7 +70,7 @@ export function SettingsPage() {
               <button
                 id="settings-start-btn"
                 className={styles.actionBtn}
-                onClick={() => initializeProgram(new Date().toISOString().split('T')[0])}
+                onClick={() => initializeProgram(new Date().toLocaleDateString('en-CA'))}
               >
                 Start Program Today
               </button>
