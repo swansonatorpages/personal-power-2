@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { AppShell } from '../components/layout/AppShell';
 import { DayScreen } from '../components/day/DayScreen';
 import { CompletionFooter } from '../components/today/CompletionFooter';
+import { NotesPanel } from '../components/today/NotesPanel';
 import { getDayByNumber, getWeekendModeContent } from '../lib/programEngine';
 import { useAppStore } from '../store/appStore';
 import styles from './DayPage.module.css';
@@ -25,6 +26,12 @@ export function DayPage() {
   const taskCompletions = useAppStore((s) => s.taskCompletions[dayNum]) ?? {};
   const isDayComplete   = useAppStore((s) => s.dayCompletions[dayNum]) ?? false;
   const markDayComplete = useAppStore((s) => s.markDayComplete);
+  const dailyNote       = useAppStore((s) => s.dailyNotes[dayNum]) ?? '';
+  const addDailyNote    = useAppStore((s) => s.addDailyNote);
+
+  const handleNoteChange = useCallback((note: string) => {
+    addDailyNote(dayNum, note);
+  }, [dayNum, addDailyNote]);
 
   const handleFinishDay = useCallback(() => {
     markDayComplete(dayNum, true);
@@ -72,6 +79,15 @@ export function DayPage() {
         taskCompletions={taskCompletions}
         isDayComplete={isDayComplete}
       />
+
+      {/* Freeform notes */}
+      <div style={{ marginTop: 'var(--space-6)', marginBottom: 'var(--space-6)' }}>
+        <NotesPanel
+          dayNumber={dayNum}
+          value={dailyNote}
+          onChange={handleNoteChange}
+        />
+      </div>
 
       {/* Spacer so content clears the sticky footer */}
       <div style={{ height: 90 }} aria-hidden />
