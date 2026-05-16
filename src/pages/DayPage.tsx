@@ -4,6 +4,7 @@ import { AppShell } from '../components/layout/AppShell';
 import { DayScreen } from '../components/day/DayScreen';
 import { CompletionFooter } from '../components/today/CompletionFooter';
 import { NotesPanel } from '../components/today/NotesPanel';
+import { CarryForwardStrip } from '../components/today/CarryForwardStrip';
 import { getDayByNumber, getWeekendModeContent } from '../lib/programEngine';
 import { useAppStore } from '../store/appStore';
 import styles from './DayPage.module.css';
@@ -71,6 +72,9 @@ export function DayPage() {
           <h2 className={styles.heroTitle}>{dayData.title}</h2>
         </div>
       </div>
+
+      {/* ── Active rituals (carry-forward habits) ── */}
+      <CarryForwardStrip dayNumber={dayNum} />
 
       {/* ── Day content ── */}
       <DayScreen
