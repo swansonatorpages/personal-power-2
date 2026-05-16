@@ -46,6 +46,17 @@ export function importAppState(jsonPayload: string): boolean {
     
     // Minimal validation to ensure it looks like our state payload
     if (parsed && typeof parsed === 'object') {
+      // Recalculate currentDayPointer from dayCompletions so the settings
+      // page reflects actual progress after a fresh import.
+      if (parsed.dayCompletions) {
+        const completedDays = Object.entries(parsed.dayCompletions)
+          .filter(([, done]) => done)
+          .map(([day]) => Number(day));
+        if (completedDays.length > 0) {
+          parsed.currentDayPointer = Math.min(Math.max(...completedDays) + 1, 30);
+        }
+      }
+
       useAppStore.getState().importState(parsed);
       return true;
     }
