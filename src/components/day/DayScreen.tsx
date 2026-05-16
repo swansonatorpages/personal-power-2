@@ -217,6 +217,7 @@ function getOverlay(dayNumber: number): DayOverlay {
         sectionBreaks: {
           day19_fear_cost: 'The Cost of Fear',
           day19_courage_gain: 'The Gain of Courage',
+          day19_erasure_technique: 'The Erasure Technique',
         },
       };
     case 20:

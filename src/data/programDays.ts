@@ -505,6 +505,22 @@ export const programDays: ProgramDay[] = [
         type: 'long_text',
         title: 'What will I gain by using my inner courage to overcome this fear of success?',
         completionRule: { required: true }
+      },
+      {
+        id: 'day19_erasure_technique',
+        type: 'checklist',
+        title: 'Erasure Technique: Removing the Fear of Failure',
+        description: 'To remove fear of failure, decide you\'re going to be free of this fear, get leverage, then interrupt your pattern using the erasure technique.',
+        completionRule: { required: true },
+        items: [
+          'Get yourself into a strong, positive state and create a positive anchor',
+          'Picture a big failure from your past and watch it happen as if it were on a movie screen',
+          'With a smile, run the entire memory in reverse at high speed',
+          'Now run it forward twice as fast to the end and stop',
+          'Run it backward and forward repeatedly as fast as you can, each time making it more bizarre',
+          'Now think about the painful memory — you should be smiling!',
+          'Imagine having the success you want over and over again until it becomes a sense of certainty that is emotionally conditioned'
+        ]
       }
     ]
   },
