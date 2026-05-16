@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAppStore } from '../../store/appStore';
 import { MORNING_POWER_QUESTIONS } from '../../data/rawProgramContent';
 import styles from './MorningQuestionsPanel.module.css';
@@ -14,8 +13,7 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
   const updateTaskResponse = useAppStore(s => s.updateTaskResponse);
   const markTaskComplete   = useAppStore(s => s.markTaskComplete);
 
-  // Each question gets its own response, stored under morning_q_{i} in taskResponses[dayNumber]
-  const responses: Record<string, string> = taskResponses[dayNumber] ?? {};
+  const responses: Record<string, unknown> = taskResponses[dayNumber] ?? {};
   
   // Pull custom questions from Day 8 if they exist
   const day8Qs = taskResponses[8]?.['day8_morning_qs'] as string[] | undefined;
@@ -23,23 +21,24 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
     ? day8Qs 
     : MORNING_POWER_QUESTIONS;
 
-  const [activeIdx, setActiveIdx] = useState<number | null>(null);
-
-  const handleAnswer = (idx: number, value: string) => {
+  const toggle = (idx: number) => {
     const taskId = STORAGE_KEY_PREFIX + idx;
-    updateTaskResponse(dayNumber, taskId, value);
-    // Consider complete when at least 3 questions have non-empty answers
-    const allResponses = { ...responses, [taskId]: value };
-    const answeredCount = Object.entries(allResponses)
-      .filter(([k, v]) => k.startsWith(STORAGE_KEY_PREFIX) && String(v).trim().length > 0)
-      .length;
-    markTaskComplete(dayNumber, 'morning_questions_panel', answeredCount >= 3);
+    const current = !!responses[taskId];
+    const next = !current;
+    updateTaskResponse(dayNumber, taskId, next);
+
+    // Recalculate completion: all questions checked = complete
+    const allResponses = { ...responses, [taskId]: next };
+    const checkedCount = customQuestions.filter((_, i) =>
+      !!allResponses[STORAGE_KEY_PREFIX + i]
+    ).length;
+    markTaskComplete(dayNumber, 'morning_questions_panel', checkedCount >= customQuestions.length);
   };
 
-  const answeredCount = Object.entries(responses)
-    .filter(([k, v]) => k.startsWith(STORAGE_KEY_PREFIX) && String(v).trim().length > 0)
-    .length;
-  const isComplete = answeredCount >= 3;
+  const checkedCount = customQuestions.filter((_, i) =>
+    !!responses[STORAGE_KEY_PREFIX + i]
+  ).length;
+  const isComplete = checkedCount >= customQuestions.length;
 
   return (
     <div className={`${styles.panel} ${isComplete ? styles.panelDone : ''}`}>
@@ -48,7 +47,7 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
           <span className={styles.icon}>☀️</span>
           <div>
             <h3 className={styles.title}>Morning Power Questions</h3>
-            <p className={styles.sub}>{answeredCount} of {customQuestions.length} answered today</p>
+            <p className={styles.sub}>{checkedCount} of {customQuestions.length} answered today</p>
           </div>
         </div>
         {isComplete && <span className={styles.completeBadge}>✓ Done</span>}
@@ -57,61 +56,42 @@ export function MorningQuestionsPanel({ dayNumber }: MorningQuestionsPanelProps)
       {/* Progress dots */}
       <div className={styles.dots}>
         {customQuestions.map((_, i) => {
-          const taskId = STORAGE_KEY_PREFIX + i;
-          const answered = String(responses[taskId] ?? '').trim().length > 0;
+          const checked = !!responses[STORAGE_KEY_PREFIX + i];
           return (
             <span
               key={i}
-              className={`${styles.dot} ${answered ? styles.dotDone : ''} ${activeIdx === i ? styles.dotActive : ''}`}
-              onClick={() => setActiveIdx(activeIdx === i ? null : i)}
+              className={`${styles.dot} ${checked ? styles.dotDone : ''}`}
+              onClick={() => toggle(i)}
             />
           );
         })}
       </div>
 
-      {/* Question list */}
+      {/* Question checklist */}
       <div className={styles.questions}>
         {customQuestions.map((q, i) => {
-          const taskId = STORAGE_KEY_PREFIX + i;
-          const value = String(responses[taskId] ?? '');
-          const isOpen = activeIdx === i;
-          const answered = value.trim().length > 0;
+          const checked = !!responses[STORAGE_KEY_PREFIX + i];
 
           return (
-            <div key={i} className={`${styles.question} ${answered ? styles.questionDone : ''}`}>
-              <button
-                id={`mpq-toggle-${dayNumber}-${i}`}
-                className={styles.questionHeader}
-                onClick={() => setActiveIdx(isOpen ? null : i)}
-                aria-expanded={isOpen}
-              >
-                <span className={`${styles.qNum} ${answered ? styles.qNumDone : ''}`}>
-                  {answered ? '✓' : i + 1}
-                </span>
-                <span className={styles.qText}>{q.replace(/^\d+\.\s*/, '')}</span>
-                <span className={styles.qChevron}>{isOpen ? '▲' : '▼'}</span>
-              </button>
-
-              {isOpen && (
-                <div className={styles.answerBox}>
-                  <textarea
-                    id={`mpq-answer-${dayNumber}-${i}`}
-                    className={styles.answerInput}
-                    placeholder="What about that makes you feel this way?"
-                    value={value}
-                    rows={3}
-                    onChange={e => handleAnswer(i, e.target.value)}
-                    autoFocus
-                  />
-                </div>
-              )}
-            </div>
+            <button
+              key={i}
+              id={`mpq-toggle-${dayNumber}-${i}`}
+              className={`${styles.question} ${checked ? styles.questionDone : ''}`}
+              onClick={() => toggle(i)}
+              role="checkbox"
+              aria-checked={checked}
+            >
+              <span className={`${styles.qNum} ${checked ? styles.qNumDone : ''}`}>
+                {checked ? '✓' : i + 1}
+              </span>
+              <span className={styles.qText}>{q.replace(/^\d+\.\s*/, '')}</span>
+            </button>
           );
         })}
       </div>
 
       {!isComplete && (
-        <p className={styles.hint}>Answer at least 3 questions to complete today's ritual</p>
+        <p className={styles.hint}>Ask yourself each question and check it off</p>
       )}
     </div>
   );

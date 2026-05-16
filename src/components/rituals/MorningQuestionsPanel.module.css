@@ -66,27 +66,27 @@
 .questions { display: flex; flex-direction: column; gap: 6px; }
 
 .question {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.02);
-  transition: border-color 0.2s;
-}
-
-.questionDone { border-color: rgba(72,199,116,0.2); }
-
-.questionHeader {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  background: none;
-  border: none;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
   cursor: pointer;
   text-align: left;
   -webkit-tap-highlight-color: transparent;
   min-height: 48px;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.question:active { background: rgba(255,255,255,0.05); }
+
+.questionDone {
+  border-color: rgba(72,199,116,0.2);
+  background: rgba(72,199,116,0.04);
 }
 
 .qNum {
@@ -118,27 +118,6 @@
 }
 
 .questionDone .qText { color: var(--color-text-primary); }
-
-.qChevron { font-size: 9px; color: var(--color-text-muted); flex-shrink: 0; }
-
-.answerBox { padding: 0 14px 14px; }
-
-.answerInput {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  font-family: var(--font-family);
-  line-height: 1.55;
-  resize: none;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.09);
-  border-radius: 10px;
-  color: var(--color-text-primary);
-  box-sizing: border-box;
-  min-height: 80px;
-}
-
-.answerInput:focus { outline: none; border-color: rgba(245,200,66,0.35); }
 
 .hint {
   font-size: 11px;
