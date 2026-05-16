@@ -569,8 +569,8 @@ export const programDays: ProgramDay[] = [
         title: 'Commit to the 10-day health challenge',
         completionRule: { required: true },
         items: [
-          'Read the power of breath',
-          'Read about water-rich foods'
+          'Learned the 4-7-8 breathing technique (inhale 4s, hold 7s, exhale 8s)',
+          'Set up calorie & protein tracking (sub-2700 cal, 140g+ protein)'
         ]
       }
     ]

@@ -247,7 +247,7 @@ function getOverlay(dayNumber: number): DayOverlay {
       return {
         assignmentIntro: {
           sectionTitle: 'The Two Keys to Vibrant Energy',
-          body: 'Key 1: Master the power of breath — 10 reps of deep breathing, 3 times a day. Key 2: Eat 70% water-rich foods. Do this for the next 10 days and notice the dramatic shift.',
+          body: 'Key 1: Master the power of breath — 2 sets of 5 rounds of 4-7-8 breathing daily. Key 2: Stay under 2,700 calories and hit at least 140g of protein. Do this for the next 10 days and notice the dramatic shift.',
         },
       };
     case 24:

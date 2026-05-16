@@ -20,25 +20,28 @@ export const RECURRING_RITUALS: Record<string, RecurringHabit> = {
   },
   water_rich_diet: {
     id: 'water_rich_diet',
-    title: 'Water-Rich Diet & Breathing',
-    description: 'Eat 70% water-rich foods and do 10 repetitions of deep breathing 3 times a day.',
+    title: '4-7-8 Breathing & Nutrition',
+    description: 'Do 2 sets of 5 rounds of 4-7-8 breathing daily. Eat sub-2700 calories with at least 140g protein.',
     frequency: 'daily',
     durationDays: 10,
     tasks: [
       {
         id: 'breathing_reps',
         type: 'habit_counter',
-        title: 'Deep Breathing Repetitions (10 reps per session)',
-        completionRule: { required: true, minItems: 3 },
-        targetCount: 3,
-        unit: 'sessions'
+        title: '4-7-8 Breathing (5 rounds per set)',
+        completionRule: { required: true, minItems: 2 },
+        targetCount: 2,
+        unit: 'sets'
       },
       {
         id: 'diet_check',
-        type: 'confirm_action',
-        title: 'Did you maintain a 70% water-rich diet today?',
-        actionText: 'Confirm diet',
-        completionRule: { required: true }
+        type: 'checklist',
+        title: 'Daily Nutrition Targets',
+        completionRule: { required: true },
+        items: [
+          'Sub-2700 calories today',
+          'At least 140g protein today'
+        ]
       }
     ]
   },
