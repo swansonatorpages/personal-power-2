@@ -196,7 +196,16 @@ function getOverlay(dayNumber: number): DayOverlay {
       return {
         assignmentIntro: {
           sectionTitle: 'Ending Financial Self-Sabotage',
-          body: 'If you are sabotaging yourself financially, it\'s because you believe on some level that the accumulation of money leads to more pain than pleasure. Starting today, write 3 income ideas every day for 10 days.',
+          body: 'If you are sabotaging yourself financially, it\'s because you believe on some level that the accumulation of money leads to more pain than pleasure. To begin attracting wealth you must (1) recognize you\'re already wealthy, and (2) believe you\'re creating a way for others to fulfill their dreams. Work through each section below to eliminate self-sabotage, reinforce empowering beliefs, and find your vehicle for building wealth.',
+        },
+        sectionBreaks: {
+          day18_recognize_wealth: 'Attracting Wealth — Acknowledge Your Abundance',
+          day18_pain_without_abundance: 'Eliminate Financial Self-Sabotage',
+          day18_empowering_beliefs: 'Review: Empowering Beliefs for Financial Freedom',
+          day18_love_to_do: 'Finding Your Vehicle for Building Wealth',
+        },
+        tipBefore: {
+          day18_love_to_do: 'Financial abundance comes from doing what you love doing and making sure it creates tremendous value for other people. Above all, make sure you\'re a giver!',
         },
       };
     case 19:

@@ -420,6 +420,70 @@ export const programDays: ProgramDay[] = [
           'I recognize I am already wealthy',
           'I believe I am creating a way for others to fulfill their dreams'
         ]
+      },
+      {
+        id: 'day18_pain_without_abundance',
+        type: 'long_text',
+        title: '1. Write a description of all of the pain you experience because you don\'t have the financial abundance you deserve.',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_money_words',
+        type: 'long_text',
+        title: '2. List words that you associate to money.',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_money_childhood',
+        type: 'long_text',
+        title: '3. Write down what you remember hearing about money when you were growing up.',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_life_without_limits',
+        type: 'long_text',
+        title: '4. Write how your life would be greater and better if lack of money were no longer an issue.',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_remove_limiting',
+        type: 'long_text',
+        title: '5. Remove your limiting beliefs by attaching new beliefs to them or ridiculing them. Write down this information and say it to yourself over and over again.',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_empowering_beliefs',
+        type: 'checklist',
+        title: 'Empowering beliefs that will lead you to financial freedom',
+        completionRule: { required: true },
+        items: [
+          'The more I give to others, the more money I receive on an ongoing, consistent basis.',
+          'I must live in an attitude of gratitude and I must give much more to others than I expect back.'
+        ]
+      },
+      {
+        id: 'day18_love_to_do',
+        type: 'long_text',
+        title: '1. What do you love to do most?',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_benefit_others',
+        type: 'long_text',
+        title: '2. How could you do this to benefit others so that they would be willing to invest in it?',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_reach_multitude',
+        type: 'long_text',
+        title: '3. How could you do it to reach a multitude of people?',
+        completionRule: { required: true }
+      },
+      {
+        id: 'day18_remain_profitable',
+        type: 'long_text',
+        title: '4. How could you do it intelligently so that it remains profitable?',
+        completionRule: { required: true }
       }
     ]
   },
