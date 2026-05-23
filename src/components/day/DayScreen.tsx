@@ -243,6 +243,10 @@ function getOverlay(dayNumber: number): DayOverlay {
           sectionTitle: 'Eliminating Self-Sabotage',
           body: 'Anything we do — including self-sabotage — we do with positive intent. Your brain is trying to help you avoid pain. Get leverage, interrupt the pattern, and rehearse succeeding. Then recall five of your greatest successes to anchor unstoppable confidence.',
         },
+        sectionBreaks: {
+          day22_confidence_info: 'Creating Self-Confidence',
+          day22_successes: 'Your Success Journal',
+        },
       };
     case 23:
       return {

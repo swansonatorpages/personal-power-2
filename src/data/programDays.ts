@@ -564,6 +564,13 @@ export const programDays: ProgramDay[] = [
     carryForwardHabits: [],
     tasks: [
       {
+        id: 'day22_confidence_info',
+        type: 'reflection_note',
+        title: 'Creating Self-Confidence',
+        content: 'There are three primary ways you can create self-confidence at any moment:\n\n1. Make a radical change in your physiology: intense, radical changes in breathing, gestures, movement, and facial expressions.\n\n2. Control your mental focus. The fastest way to change what you\'re focusing on is to change the questions you\'re asking yourself. Change from "What happens if I fail at this?" or "Why do I always screw these things up?" to "What\'s the best way to get this done now?" or better yet, "What\'s the best way to get this done and enjoy the process?"\n\n3. Change your core beliefs. Change from "I\'ve never done it before so I don\'t see how I could do it today," to "If I can imagine it, I can achieve it."\n\nThe Success Cycle: Potential → Action → Results → Belief → (back to Potential)\n\nTo have more confidence, stop analyzing yourself and focus on how you can contribute to others.',
+        completionRule: { required: true }
+      },
+      {
         id: 'day22_successes',
         type: 'multi_entry_list',
         title: 'My five greatest successes:',
